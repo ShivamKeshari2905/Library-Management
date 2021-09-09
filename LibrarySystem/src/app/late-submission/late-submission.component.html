@@ -1,0 +1,31 @@
+<div *ngFor="let book of lateSubmissionList" class="container-fluid">
+	<div class="row">
+		<div class="col-12 mt-3">
+			<div class="card">
+				<div class="card-horizontal">
+					<!-- <div class="img-square-wrapper">
+						<img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+					</div> -->
+					<div class="card-body">
+						<h4 class="card-title" [className]="getColorFromSubmissionDate(book.borrows)">Borrower: {{book.username}}
+						</h4>
+						<h6 class="card-title">Email: {{book.email}}</h6>
+						<h6 class="card-title">Mobile: {{book.mobile}}</h6>
+						<p class="card-text">
+							Book Title : {{book.borrows.book[0].title}}
+						</p>
+						<p class="card-text">
+							Book Author : {{book.borrows.book[0].author}}
+						</p>
+						<p class="card-text">
+							Issue Date : {{formatDate(book.borrows.borrowdate)}}
+						</p>
+						<p class="card-text">
+							Submission Date : {{formatDate(book.borrows.submissiondate)}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

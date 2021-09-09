@@ -1,0 +1,47 @@
+<div *ngFor="let book of issuedBooks" class="container-fluid">
+	<div class="row">
+		<div class="col-12 mt-3">
+			<div class="card">
+				<div class="card-horizontal">
+					<!-- <div class="img-square-wrapper">
+						<img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+					</div> -->
+					<div class="card-body">
+						<h4 class="card-title">{{book._id.title}}</h4>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of
+							the card's content.</p>
+						<p class="card-text">
+							Author : {{book._id.author}}
+						</p>
+						<p class="card-text">
+							Issue Date : {{this.getDateString(book.borrowdate)}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="issuedBooks.length==0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="error-template">
+					<h1>
+						Oops!</h1>
+					<h2>
+						No Books is Issued</h2>
+					<div class="error-details">
+						Please Issue a book from books table
+					</div>
+					<div class="error-actions">
+						<a href="home" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+							Take Me Home </a><a href="books" class="btn btn-default btn-lg"><span
+								class="glyphicon glyphicon-envelope"></span> Books Table </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<!-- <img src="assets/images/lib.jpg" alt="Snow"> -->
+<!-- <h1>
+    <marquee direction="left" style="font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; color: #FFFFFF; height:50px" bgcolor="#00224f"
+        scrolldelay="10" behavior="loop">Welcome To Capgemini Library</marquee>
+</h1>
+
+<button class="btn btn-info" routerLink="/books">Browse Books</button> -->
+
+<div class="header">
+    <div id="slider">
+        <div class="heading">
+            <h1>Welcome to our Library</h1>
+        </div>
+        <div class="center-div btns" *ngIf="!utilityService.isUser()">
+            <a (click)="alertOne()">Browse Books</a>
+            <a (click)="alertOne()">Books Collection</a>
+        </div>
+
+        <div class="center-div btns" *ngIf="utilityService.isUser()">
+            <a routerLink="/books">Browse Books</a>
+            <a routerLink="/issueBook">Issued Book</a>
+        </div>
+
+        <div class="center-div btns" *ngIf="utilityService.isAdmin()">
+            <a  routerLink="/books">Browse Books</a>
+            <a  routerLink="/usertable">User Table</a>
+        </div>
+
+        <figure>
+            <img src="assets/images/lib.jpg" alt>
+        </figure>
+    </div>
+</div>

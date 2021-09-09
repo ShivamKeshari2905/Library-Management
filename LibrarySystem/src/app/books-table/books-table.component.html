@@ -1,0 +1,65 @@
+<div class="container mt-5 mb-5">
+    <button class="btn btn-danger mb-2" *ngIf="utilityService.isAdmin()" data-toggle="modal"
+        data-target="#myModalDelete">Delete
+        Book</button>&nbsp;
+    <ag-grid-angular style="width: 100%; height: 309px;" class="ag-theme-alpine" [rowData]="books"
+        [columnDefs]="columnDefs" pagination="true" paginationPageSize=5 [editType]="'fullRow'"
+        [rowSelection]="rowSelection" (rowValueChanged)="onRowValueChanged($event)"
+        [frameworkComponents]="frameworkComponents" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+</div>
+
+<div id="myModalDelete" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Are You Sure You Want to Delete</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-danger mr-2" data-dismiss="modal" (click)="deleteBook()">
+                    Yes
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div aria-live="polite" aria-atomic="true" style="position: absolute; top: 0;  min-height: 200px; min-width: 300px; right: 50%;">
+    <div class="toast" id="toast-issue-limit-reached">
+      <div class="toast-header">
+        <strong class="mr-auto" style="color: red;">You cannot issue more than 3 books !</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div aria-live="polite" aria-atomic="true" style="position: absolute; top: 0;  min-height: 200px; min-width: 300px; right: 50%;">
+    <div class="toast" id="toast-issue-success">
+      <div class="toast-header">
+        <strong class="mr-auto" style="color: green;">Issued successfully!</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div aria-live="polite" aria-atomic="true" style="position: absolute; top: 0;  min-height: 200px; min-width: 300px; right: 50%;">
+    <div class="toast" id="toast-issue-error">
+      <div class="toast-header">
+        <strong class="mr-auto" style="color: red;">Error Occurred! Try Again!</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
